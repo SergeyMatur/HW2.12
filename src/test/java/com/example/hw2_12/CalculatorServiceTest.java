@@ -24,10 +24,10 @@ class CalculatorServiceTest {
     @Test
     public void minusTest() {
         Number actual = calculatorService.minus(2, 3);
-        assertThat(actual).isEqualTo(1);
+        assertThat(actual).isEqualTo(-1);
 
         actual = calculatorService.minus(-3, 1);
-        assertThat(actual).isEqualTo(-3);
+        assertThat(actual).isEqualTo(-4);
     }
 
     @Test
@@ -45,7 +45,7 @@ class CalculatorServiceTest {
         assertThat(actual).isEqualTo(0.5);
 
         actual = calculatorService.divide(-3, 1);
-        assertThat(actual).isEqualTo(-3);
+        assertThat(actual).isEqualTo(-3D);
     }
 
     @Test

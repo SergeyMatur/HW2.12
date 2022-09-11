@@ -20,7 +20,11 @@ public class CalculatorService {
 
     public Number divide(Integer a, Integer b) {
         if (b == 0) {
-            throw new DivideByZeroException("Делить на ноль нельзя!");
+            try {
+                throw new DivideByZeroException("Делить на ноль нельзя!");
+            } catch (DivideByZeroException e) {
+                throw new RuntimeException(e);
+            }
         }
         return a.doubleValue() / b;
     }

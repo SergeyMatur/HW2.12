@@ -51,11 +51,11 @@ class CalculatorServiceTest {
     @Test
     public void divideNegativeTest() {
         assertThatExceptionOfType(DivideByZeroException.class)
-                .isThrownBy() ->calculatorService.divide(1, 0)
+                .isThrownBy(() ->calculatorService.divide(1, 0))
                 .withMessage("Делить на ноль нельзя!");
 
         assertThatExceptionOfType(DivideByZeroException.class)
-                .isThrownBy() ->calculatorService.divide(-1, 0)
+                .isThrownBy(() ->calculatorService.divide(-1, 0))
                 .withMessage("Делить на ноль нельзя!");
     }
 }

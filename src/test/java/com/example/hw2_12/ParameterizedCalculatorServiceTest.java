@@ -5,11 +5,8 @@ import com.example.hw2_12.service.CalculatorService;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.stream.Stream;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
-import static org.assertj.core.api.AssertionsForClassTypes.notIn;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class ParameterizedCalculatorServiceTest {
@@ -36,7 +33,7 @@ public class ParameterizedCalculatorServiceTest {
     public void divideTest(Integer a, Integer b, Double expected) {
         if (b == 0) {
             assertThatExceptionOfType(DivideByZeroException.class)
-                    .isThrownBy() ->calculatorService.divide(a, b)
+                    .isThrownBy(() ->calculatorService.divide(a, b))
                     .withMessage("Делить на ноль нельзя!");
         } else {
             assertThat(calculatorService.divide(a, b)).isEqualTo(expected);
